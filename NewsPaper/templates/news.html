@@ -1,0 +1,44 @@
+{% extends 'default.html' %}
+{% load custom_filters %}
+{% block title %}
+News
+{% endblock title %}
+
+{% block content %}
+<h3>{{ time_now|date:'M d Y' }}</h3>
+    <h1>Все новости</h1>
+    <hr>
+    {% if news %} <!-- Если есть товары, то выводим таблицу с ними -->
+        <table>
+            <tr>
+                <td>
+                    Заголовок
+                </td>
+                <td>
+                    Дата публикации
+                </td>
+                <td>
+                    Текст статьи
+                </td>
+
+            </tr>
+        {% for news in news %}
+            <tr>
+                <td>
+                    {{ news.title|truncatechars:50  }}
+            </td>
+
+                <td>
+                    {{ nwes.time_creat|date:'M d Y'}}
+                </td>
+                <td>
+                    {{ news.text}}
+                </td>
+
+            </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <h2>Товаров нет!</h2>
+    {% endif %}
+{% endblock content %}

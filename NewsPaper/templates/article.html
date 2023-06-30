@@ -1,0 +1,29 @@
+{% extends 'default.html' %}
+
+<!-- Название у нас будет proudcts -->
+{% block title %}
+news
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим сам товар, айди которого было передано в адрес -->
+{% block content %}
+<h1>{{ article }}</h1>
+<table>
+
+            <tr>
+                <td>
+                    {{ news.title|truncatechars:50  }}
+            </td>
+
+                <td>
+                    {{ nwes.time_creat|date:'M d Y'}}
+                </td>
+                <td>
+                    {{ news.text}}
+                </td>
+
+            </tr>
+
+</table>
+
+{% endblock content %}
